@@ -188,7 +188,7 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <span>🐍 Mamba Snake</span>
+        <span>Mamba</span>
         <span className="footer-dot">·</span>
         <span>Material Design 3</span>
       </footer>

@@ -15,8 +15,35 @@ export default function Header({
   return (
     <header className="app-header">
       <div className="header-title">
-        <span className="header-logo" aria-hidden="true">🐍</span>
-        <h1 className="header-headline">Mamba Snake</h1>
+        <span className="header-logo" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="headerSnakeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="var(--md-primary, #6200EE)" />
+                <stop offset="50%" stopColor="var(--md-secondary, #03DAC6)" />
+                <stop offset="100%" stopColor="var(--md-tertiary, #FF6D00)" />
+              </linearGradient>
+              <linearGradient id="headerHeadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#7C4DFF" />
+                <stop offset="100%" stopColor="var(--md-primary, #6200EE)" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M 12 52 C 6 44, 14 38, 20 40 C 26 42, 24 34, 32 34 C 40 34, 38 26, 46 24 C 52 22.5, 56 18, 56 12"
+              stroke="url(#headerSnakeGrad)"
+              strokeWidth="7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <rect x="46" y="4" width="16" height="14" rx="7" fill="url(#headerHeadGrad)" />
+            <line x1="62" y1="9" x2="64" y2="6" stroke="var(--md-tertiary, #FF6D00)" strokeWidth="2.5" strokeLinecap="round" />
+            <line x1="62" y1="9" x2="64" y2="12" stroke="var(--md-tertiary, #FF6D00)" strokeWidth="2.5" strokeLinecap="round" />
+            <circle cx="55" cy="9" r="2.2" fill="#FFFFFF" />
+            <circle cx="55.8" cy="8.2" r="0.9" fill="#1C1B1F" />
+            <circle cx="12" cy="52" r="3.5" fill="var(--md-secondary, #03DAC6)" />
+          </svg>
+        </span>
+        <h1 className="header-headline">Mamba</h1>
       </div>
 
       <div className="header-actions">

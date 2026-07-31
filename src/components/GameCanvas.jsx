@@ -260,13 +260,92 @@ export default function GameCanvas({
       ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
       ctx.fillRect(0, 0, size, size);
 
+      // Draw material snake logo
+      const logoScale = cellSize * 0.25;
+      const logoCenterX = size / 2;
+      const logoCenterY = size / 2 - cellSize * 1.5;
+
+      // Snake body - S-curve with gradient
+      const bodyGradient = ctx.createLinearGradient(
+        logoCenterX - 3 * logoScale, logoCenterY + 2 * logoScale,
+        logoCenterX + 3 * logoScale, logoCenterY - 2 * logoScale
+      );
+      bodyGradient.addColorStop(0, colors.primary);
+      bodyGradient.addColorStop(0.5, colors.secondary);
+      bodyGradient.addColorStop(1, colors.tertiary);
+
+      ctx.strokeStyle = bodyGradient;
+      ctx.lineWidth = logoScale * 0.75;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      ctx.beginPath();
+      ctx.moveTo(logoCenterX - 3.2 * logoScale, logoCenterY + 2.2 * logoScale);
+      ctx.bezierCurveTo(
+        logoCenterX - 4.2 * logoScale, logoCenterY + 0.8 * logoScale,
+        logoCenterX - 2.4 * logoScale, logoCenterY + 0.2 * logoScale,
+        logoCenterX - 1.6 * logoScale, logoCenterY + 0.5 * logoScale
+      );
+      ctx.bezierCurveTo(
+        logoCenterX - 0.8 * logoScale, logoCenterY + 0.8 * logoScale,
+        logoCenterX - 1.1 * logoScale, logoCenterY - 0.6 * logoScale,
+        logoCenterX - 0.1 * logoScale, logoCenterY - 0.6 * logoScale
+      );
+      ctx.bezierCurveTo(
+        logoCenterX + 0.9 * logoScale, logoCenterY - 0.6 * logoScale,
+        logoCenterX + 0.6 * logoScale, logoCenterY - 2 * logoScale,
+        logoCenterX + 1.7 * logoScale, logoCenterY - 2.2 * logoScale
+      );
+      ctx.bezierCurveTo(
+        logoCenterX + 2.6 * logoScale, logoCenterY - 2.4 * logoScale,
+        logoCenterX + 3.2 * logoScale, logoCenterY - 3 * logoScale,
+        logoCenterX + 3.2 * logoScale, logoCenterY - 4 * logoScale
+      );
+      ctx.stroke();
+
+      // Snake head - rounded rectangle
+      const headGradient = ctx.createLinearGradient(
+        logoCenterX + 2 * logoScale, logoCenterY - 4.8 * logoScale,
+        logoCenterX + 3.6 * logoScale, logoCenterY - 3 * logoScale
+      );
+      headGradient.addColorStop(0, '#7C4DFF');
+      headGradient.addColorStop(1, colors.primary);
+
+      ctx.fillStyle = headGradient;
+      const headSize = logoScale * 1.4;
+      const headX = logoCenterX + 2 * logoScale;
+      const headY = logoCenterY - 4.8 * logoScale;
+      const headRadius = logoScale * 0.6;
+      ctx.beginPath();
+      drawRoundRect(ctx, headX, headY, headSize, headSize, headRadius);
+      ctx.fill();
+
+      // Tongue fork
+      ctx.strokeStyle = colors.tertiary;
+      ctx.lineWidth = logoScale * 0.22;
+      const tongueBaseX = headX + headSize + logoScale * 0.15;
+      const tongueY = headY + headSize * 0.5;
+      ctx.beginPath();
+      ctx.moveTo(tongueBaseX, tongueY);
+      ctx.lineTo(tongueBaseX + logoScale * 0.4, tongueY - logoScale * 0.3);
+      ctx.moveTo(tongueBaseX, tongueY);
+      ctx.lineTo(tongueBaseX + logoScale * 0.4, tongueY + logoScale * 0.3);
+      ctx.stroke();
+
+      // Eye
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(headX + headSize * 0.68, headY + headSize * 0.35, logoScale * 0.18, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1C1B1F';
+      ctx.beginPath();
+      ctx.arc(headX + headSize * 0.74, headY + headSize * 0.28, logoScale * 0.07, 0, Math.PI * 2);
+      ctx.fill();
+
       ctx.fillStyle = colors.onBackground;
-      ctx.font = `bold ${cellSize * 1.2}px Roboto, sans-serif`;
+      ctx.font = `bold ${cellSize * 0.8}px Roboto, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('🐍', size / 2, size / 2 - cellSize * 1.5);
-
-      ctx.font = `bold ${cellSize * 0.8}px Roboto, sans-serif`;
       ctx.fillText('Press Start or Enter', size / 2, size / 2 + cellSize * 0.5);
 
       ctx.font = `${cellSize * 0.4}px Roboto, sans-serif`;

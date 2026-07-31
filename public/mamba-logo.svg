@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6200EE"/>
+      <stop offset="50%" stop-color="#03DAC6"/>
+      <stop offset="100%" stop-color="#FF6D00"/>
+    </linearGradient>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C4DFF"/>
+      <stop offset="100%" stop-color="#6200EE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Snake body - S-curve -->
+  <path
+    d="M 12 52
+       C 6 44, 14 38, 20 40
+       C 26 42, 24 34, 32 34
+       C 40 34, 38 26, 46 24
+       C 52 22.5, 56 18, 56 12"
+    fill="none"
+    stroke="url(#snakeGrad)"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Snake head - rounded rectangle -->
+  <rect
+    x="46" y="4"
+    width="16" height="14"
+    rx="7"
+    fill="url(#headGrad)"
+  />
+
+  <!-- Tongue fork -->
+  <line x1="62" y1="9" x2="64" y2="6" stroke="#FF6D00" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="62" y1="9" x2="64" y2="12" stroke="#FF6D00" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Eye -->
+  <circle cx="55" cy="9" r="2.2" fill="#FFFFFF"/>
+  <circle cx="55.8" cy="8.2" r="0.9" fill="#1C1B1F"/>
+
+  <!-- Tail tip accent -->
+  <circle cx="12" cy="52" r="3.5" fill="#03DAC6">
+    <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Speed dash accents -->
+  <line x1="18" y1="14" x2="26" y2="10" stroke="#03DAC6" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="30" y1="8" x2="36" y2="6" stroke="#03DAC6" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>

@@ -1,4 +1,8 @@
-# 🐍 Mamba Snake
+# Mamba
+
+<p align="center">
+  <img src="public/mamba-logo.svg" alt="Mamba Logo" width="120" height="120" />
+</p>
 
 A modern, feature-rich snake game built with **React 18** and **Vite**, styled with the **Material Design 3** design system. Runs entirely in the browser with no backend — scores persist locally via `localStorage`.
 
