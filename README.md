@@ -11,6 +11,8 @@ A modern, feature-rich snake game built with **React 18** and **Vite**, styled w
 ![Material Design 3](https://img.shields.io/badge/Material%20Design-3-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
+🌐 **[Play Mamba Live →](https://solondas96.github.io/mamba/)**
+
 ---
 
 ## ✨ Features
