@@ -39,8 +39,10 @@ export function useTheme() {
     root.style.colorScheme = resolvedTheme;
 
     // Set CSS custom properties for Material Design tokens
+    // Convert camelCase to kebab-case (e.g., onPrimary → on-primary)
     Object.entries(colors).forEach(([key, value]) => {
-      root.style.setProperty(`--md-${key}`, value);
+      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+      root.style.setProperty(`--md-${kebabKey}`, value);
     });
 
     // Update meta theme-color

@@ -73,8 +73,11 @@ export default function GameCanvas({
     // Clear canvas
     ctx.clearRect(0, 0, size, size);
 
-    // Draw background
-    ctx.fillStyle = colors.surface;
+    // Draw background with subtle gradient
+    const bgGradient = ctx.createLinearGradient(0, 0, size, size);
+    bgGradient.addColorStop(0, colors.surface);
+    bgGradient.addColorStop(1, colors.surfaceVariant);
+    ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, size, size);
 
     // Draw grid lines
