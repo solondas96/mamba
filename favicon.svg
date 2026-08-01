@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6200EE"/>
+      <stop offset="50%" stop-color="#03DAC6"/>
+      <stop offset="100%" stop-color="#FF6D00"/>
+    </linearGradient>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C4DFF"/>
+      <stop offset="100%" stop-color="#6200EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#6200EE"/>
+  <circle cx="32" cy="32" r="28" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Snake body - S-curve -->
+  <path
+    d="M 14 48
+       C 8 40, 16 34, 22 36
+       C 28 38, 26 30, 34 30
+       C 42 30, 40 22, 48 20
+       C 54 18.5, 58 14, 58 8"
+    fill="none"
+    stroke="url(#snakeGrad)"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Snake head - rounded square -->
+  <rect x="48" y="2" width="12" height="11" rx="5.5" fill="#FFFFFF"/>
+
+  <!-- Tongue fork -->
+  <line x1="60" y1="7" x2="62" y2="4.5" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="7" x2="62" y2="9.5" stroke="#FF6D00" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Eye -->
+  <circle cx="54" cy="7.5" r="1.8" fill="#6200EE"/>
+
+  <!-- Tail tip -->
+  <circle cx="14" cy="48" r="2.8" fill="#03DAC6"/>
+</svg>
